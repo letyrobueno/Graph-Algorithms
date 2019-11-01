@@ -1,4 +1,4 @@
-## Algorithms in Graphs Course
+## Graph Algorithms Course (with codes in C++ and Java)
 
 ### Computer Science Undergraduate Program 
 
