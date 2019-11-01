@@ -1,7 +1,7 @@
 /* Example of how to read a graph from an input file (the format is set by the programmer) and 
 store it into an adjacency list and into an adjacency matrix.
-	To compile in Linux (terminal): g++ -o program program.cpp
-	To run in Linux (terminal): ./program G1.in
+	To compile it in Linux (terminal): g++ -o program program.cpp
+	To run it in Linux (terminal): ./program G1.in
 */
 
 #include<stdlib.h>
