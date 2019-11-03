@@ -40,9 +40,9 @@ string GetInt2Str(int intConvert) {
 
 // Read the input file storing the vertices and their adjacencies in an adjacency list called Vet
 // the variable n is sent by reference (not by value), because it's modified in the method
-void readFileLista(string arquivo, int *n, VertexType Vet[]){
+void readFileList(string arquivo, int *n, VertexType Vet[]){
     string line;
-    short v,u,i,temp;
+    short v, u, i, temp;
     ifstream myfile; // open input file and points to the next element to be read
     myfile.open (arquivo.c_str(),ios::in);
     if (myfile.is_open()){
@@ -52,9 +52,9 @@ void readFileLista(string arquivo, int *n, VertexType Vet[]){
             getline(myfile,line);
             if (i==1) *n=GetStr2Int(line); // number of vertices of the graph; convert string to integer
             else if (line.length()>0){ // vertices of the graph
-                temp=line.find_first_of(":");
-                v=GetStr2Int(line.substr(0,temp));
-                line=line.substr(temp+1);
+                temp = line.find_first_of(":");
+                v = GetStr2Int(line.substr(0,temp));
+                line = line.substr(temp+1);
                 while (line.length()>1){
                     temp = line.find_first_of(",");
                     u = GetStr2Int(line.substr(0,temp));
@@ -115,7 +115,7 @@ int main( int argc, char * argv[ ]){
     VertexType Vet[maxVert];
     
     string fileName = argv[1]; // it takes the name of the file as a parameter
-    readFileLista(fileName, &n, Vet);
+    readFileList(fileName, &n, Vet);
 
     std::cout << "**********\n Adjacencies of the Graph \n**********\n\n";
     writeGraphList(n, Vet);
