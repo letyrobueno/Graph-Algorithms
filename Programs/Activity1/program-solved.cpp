@@ -76,12 +76,12 @@ void writeGraphList(){
     int u;
     list<int>:: iterator it;
     for(int i=1; i<=n; i++){
-        std::cout << "Vertex " << i << " is adjacent to ";
+        cout << "Vertex " << i << " is adjacent to ";
         for (it=Vet[i].Adj.begin(); it!=Vet[i].Adj.end(); it++){
             u = *it;
-            std::cout << u << ", ";
+            cout << u << ", ";
         }
-        std::cout << "\n";
+        cout << "\n";
     }
 }
 
@@ -91,9 +91,9 @@ void AdjList_print_adj(int v){
     list<int>:: iterator it;
     for (it=Vet[v].Adj.begin(); it!=Vet[v].Adj.end(); it++){
         u = *it;
-        std::cout << u << ", ";
+        cout << u << ", ";
     }
-    std::cout << "\n";
+    cout << "\n";
 }
 
 // verify if vertices u and v are adjacent (AdjList)
@@ -156,13 +156,13 @@ void readFileMatrix(string fileName){
 // Write the graph stored in the adjacency matrix
 void writeGraphMatrix(){
     for(int i=1; i<=n; i++){
-        std::cout << "Vertex " << i << " is adjacent to ";
+        cout << "Vertex " << i << " is adjacent to ";
         for(int j=1; j<=n; j++){
             if (M[i][j]==1){
-                std::cout << j << ", ";
+                cout << j << ", ";
             }
         }
-        std::cout << "\n";
+        cout << "\n";
     }
 }
 
@@ -170,10 +170,10 @@ void writeGraphMatrix(){
 void AdjMatrix_print_adj(int v){
     for(int j=1; j<=n; j++){
         if (M[v][j]==1){
-            std::cout << j << ", ";
+            cout << j << ", ";
         }
     }
-    std::cout << "\n \n";
+    cout << "\n \n";
 }
 
 // verify if vertices u and v are adjacent (AdjMatrix)
@@ -197,11 +197,11 @@ int AdjMatrix_degree(int u){
 int main( int argc, char * argv[ ]){
     string fileName = argv[1]; // it takes the name of the file as a parameter
 
-    std::cout << "**********\n Graph from the adjacency list:\n**********\n\n";
+    cout << "**********\n Graph from the adjacency list:\n**********\n\n";
     readFileList(fileName);
     writeGraphList();
 
-    std::cout << "\n**********\n Graph from the adjacency matrix:\n**********\n\n";
+    cout << "\n**********\n Graph from the adjacency matrix:\n**********\n\n";
     readFileMatrix(fileName);
     writeGraphMatrix();
     return 0; 

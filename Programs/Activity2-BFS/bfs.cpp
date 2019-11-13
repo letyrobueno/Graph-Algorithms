@@ -74,12 +74,12 @@ void writeGraphList(int n, VertexType Vet[]){
     int u;
     list<int>:: iterator it;
     for(int i=1;i<=n;i++){
-        std::cout << "The vertex " << i << " is adjacent to: ";
+        cout << "The vertex " << i << " is adjacent to: ";
         for (it=Vet[i].Adj.begin(); it!=Vet[i].Adj.end(); it++){
             u = *it;
-            std::cout << u << ", ";
+            cout << u << ", ";
         }
-        std::cout << "\n";
+        cout << "\n";
     }
 }
 
@@ -142,7 +142,7 @@ int main(int argc, char * argv[ ]){
     string fileName = argv[1]; // it takes the name of the file as a parameter
     readFileList(fileName,&n,Vet);
 
-    std::cout << "**********\n Adjacencies of the Graph \n**********\n\n";
+    cout << "**********\n Adjacencies of the Graph \n**********\n\n";
     writeGraphList(n,Vet);
 
     return 0; 

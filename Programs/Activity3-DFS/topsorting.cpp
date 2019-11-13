@@ -73,12 +73,12 @@ void writeGraphList(int n, VertexType Vet[]){
     int u;
     list<int>:: iterator it;
     for(int i=1; i<=n; i++){
-        std::cout << "The vertex " << i << " is adjacent to: ";
+        cout << "The vertex " << i << " is adjacent to: ";
         for (it=Vet[i].Adj.begin(); it!=Vet[i].Adj.end(); it++){
             u = *it;
-            std::cout << u << ", ";
+            cout << u << ", ";
         }
-        std::cout << "\n";
+        cout << "\n";
     }
 }
 
@@ -113,10 +113,10 @@ int main( int argc, char * argv[ ]){
 
     readFileList(arquivo,&n,Vet);
 
-    std::cout << "**********\n Adjacencies of the Graph \n**********\n\n";
+    cout << "**********\n Adjacencies of the Graph \n**********\n\n";
     writeGraphList(n,Vet);
 
-    std::cout << "\n**********\n Topological Sorting \n**********\n\n";
+    cout << "\n**********\n Topological Sorting \n**********\n\n";
 
     // mark all vertices as unvisited
     for(int i = 1; i <= n; i++){
@@ -142,7 +142,7 @@ int main( int argc, char * argv[ ]){
         cout << v << " ";
     }
 
-    std::cout << "\n\n";
+    cout << "\n\n";
 
     return 0; 
 }

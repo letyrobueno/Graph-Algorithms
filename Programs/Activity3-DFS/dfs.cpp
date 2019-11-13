@@ -40,17 +40,17 @@ string GetInt2Str(int intConvert) {
 
 // Read the input file storing the vertices and their adjacencies in an adjacency list called Vet
 // the variable n is sent by reference (not by value), because it's modified in the method
-void readFileList(string arquivo, int *n, VertexType Vet[]){
+void readFileList(string fileName, int *n, VertexType Vet[]){
     string line;
     short v, u, i, temp;
     ifstream myfile; // open input file and points to the next element to be read
-    myfile.open (arquivo.c_str(),ios::in);
+    myfile.open (fileName.c_str(), ios::in);
     if (myfile.is_open()){
         i = 0;
         while (myfile.good()){
             i++;
             getline(myfile,line);
-            if (i==1) *n=GetStr2Int(line); // number of vertices of the graph; convert string to integer
+            if (i==1) *n = GetStr2Int(line); // number of vertices of the graph; convert string to integer
             else if (line.length()>0){ // vertices of the graph
                 temp = line.find_first_of(":");
                 v = GetStr2Int(line.substr(0,temp));
@@ -75,12 +75,12 @@ void writeGraphList(int n, VertexType Vet[]){
     int u;
     list<int>:: iterator it;
     for(int i=1; i<=n; i++){
-        std::cout << "The vertex " << i << " is adjacent to: ";
+        cout << "The vertex " << i << " is adjacent to: ";
         for (it=Vet[i].Adj.begin(); it!=Vet[i].Adj.end(); it++){
             u = *it;
-            std::cout << u << ", ";
+            cout << u << ", ";
         }
-        std::cout << "\n";
+        cout << "\n";
     }
 }
 
@@ -117,7 +117,7 @@ int main( int argc, char * argv[ ]){
     string fileName = argv[1]; // it takes the name of the file as a parameter
     readFileList(fileName, &n, Vet);
 
-    std::cout << "**********\n Adjacencies of the Graph \n**********\n\n";
+    cout << "**********\n Adjacencies of the Graph \n**********\n\n";
     writeGraphList(n, Vet);
 
     // mark all vertices as unvisited and with no predecessor
@@ -128,9 +128,9 @@ int main( int argc, char * argv[ ]){
     }
     int cont = 1;
 
-    std::cout << "\n**********\n Depth-First Search \n**********\n\n";
+    cout << "\n**********\n Depth-First Search \n**********\n\n";
     dfs(1, n, Vet, &cont);
-    std::cout << "\n\n";
+    cout << "\n\n";
 
     return 0; 
 }

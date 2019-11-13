@@ -48,7 +48,7 @@ void readFileList(string fileName, int *n, VertexType Vet[]){
         while (myfile.good()){
             i++;
             getline(myfile,line);
-            if (i==1) *n=GetStr2Int(line); // number of vertices of the graph; convert string to integer
+            if (i==1) *n = GetStr2Int(line); // number of vertices of the graph; convert string to integer
             else if (line.length()>0){ // vertices of the graph
                 temp = line.find_first_of(":");
                 v = GetStr2Int(line.substr(0,temp));
@@ -74,12 +74,12 @@ void writeGraphList(int n, VertexType Vet[]){
     int u;
     list<int>:: iterator it;
     for(int i=1;i<=n;i++){
-        std::cout << "The vertex " << i << " is adjacent to: ";
+        cout << "The vertex " << i << " is adjacent to: ";
         for (it=Vet[i].Adj.begin(); it!=Vet[i].Adj.end(); it++){
             u = *it;
-            std::cout << u << ", ";
+            cout << u << ", ";
         }
-        std::cout << "\n";
+        cout << "\n";
     }
 }
 
@@ -163,14 +163,14 @@ int main(int argc, char * argv[ ]){
     string fileName = argv[1]; // it takes the name of the file as a parameter
     readFileList(fileName, &n, Vet);
 
-    std::cout << "**********\n Adjacencies of the Graph \n**********\n\n";
+    cout << "**********\n Adjacencies of the Graph \n**********\n\n";
     writeGraphList(n, Vet);
 
-    std::cout << "**********\n Breadth-first search\n**********\n\n";
+    cout << "**********\n Breadth-first search\n**********\n\n";
     bfs(1, n, Vet);
     print_min_paths(1, n, Vet);
 
-    std::cout << "\n The graph is connected? " << ((isConnected(n,Vet)==1)?"Yes":"No") << "\n";
+    cout << "\n The graph is connected? " << ((isConnected(n,Vet)==1)?"Yes":"No") << "\n";
 
     return 0; 
 }
